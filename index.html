@@ -96,6 +96,43 @@
       color: var(--link-color);
     }
 
+    /* Timeline */
+    .timeline {
+      position: relative;
+      margin: 30px 0;
+      padding-left: 25px;
+      border-left: 3px solid var(--accent-color);
+    }
+
+    .timeline-item {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -11px;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      background-color: var(--bg-color);
+      border: 3px solid var(--accent-color);
+      border-radius: 50%;
+    }
+
+    .timeline-date {
+      color: var(--link-color);
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .timeline-content h3 {
+      margin: 0;
+      font-size: 18px;
+      color: var(--text-color);
+    }
+
     @media (max-width: 600px) {
       .top-buttons {
         flex-direction: column;
@@ -121,53 +158,4 @@
     </div>
 
     <h2>Perfil Profesional</h2>
-    <p>Ingeniero de datos con más de dos años de experiencia en e-commerce. Especializado en BigQuery, Python, calidad de datos y liderazgo en crecimiento. Me enfoco en generar soluciones eficientes y escalables en ambientes colaborativos.</p>
-
-    <h2>Experiencia Laboral</h2>
-    <ul>
-      <li><strong>Mercado Libre</strong> – Ingeniero de Datos Semi Senior (2023 - Actualidad)
-        <ul>
-          <li>Desarrollo y mantenimiento de pipelines con BigQuery y Python</li>
-          <li>Optimización de recursos y costos en la nube</li>
-          <li>Monitoreo y control de calidad de datos en el área de advertising</li>
-        </ul>
-      </li>
-    </ul>
-
-    <h2>Educación</h2>
-    <ul>
-      <li><strong>Analista de Sistemas</strong> – [Nombre de la institución] (En curso – Graduación: marzo 2026)</li>
-    </ul>
-
-    <h2>Habilidades Técnicas</h2>
-    <ul>
-      <li>BigQuery, SQL avanzado</li>
-      <li>Python (automatización, limpieza y análisis de datos)</li>
-      <li>Modelado de datos, optimización de pipelines</li>
-      <li>Google Cloud Platform, Git, Linux</li>
-      <li>Power BI, Excel, Google Sheets</li>
-    </ul>
-
-    <h2>Proyectos</h2>
-    <div class="proyecto">
-      <strong>Automatización de reportes semanales</strong> – Pipeline en Python y BigQuery para generar informes automáticos.
-    </div>
-    <div class="proyecto">
-      <strong>Dashboard de ventas e intención de voto</strong> – Visualización con Power BI conectando CSV + Web + BBDD.
-    </div>
-    <div class="proyecto">
-      <strong>Sistema de mejora de procesos internos</strong> – Proyecto de análisis organizacional usando herramientas de modelado de procesos.
-    </div>
-
-    <div class="footer">
-      © 2025 Pablo Carrazana
-    </div>
-  </div>
-
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle("dark");
-    }
-  </script>
-</body>
-</html>
+    <p>Ingeniero de datos con más de do
