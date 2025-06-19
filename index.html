@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pablo Carrazana - CV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #333;
+      --accent-color: #2c3e50;
+      --link-color: #0077b5;
+    }
+    body.dark {
+      --bg-color: #1e1e1e;
+      --text-color: #eee;
+      --accent-color: #61dafb;
+      --link-color: #4da3ff;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: var(--bg-color);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    }
+
+    h1, h2 {
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 4px;
+      margin-top: 30px;
+    }
+
+    .contacto a {
+      text-decoration: none;
+      color: var(--link-color);
+    }
+
+    .contacto a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .top-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      background-color: #1a2e3b;
+    }
+
+    .proyecto {
+      margin-bottom: 10px;
+    }
+
+    .proyecto a {
+      color: var(--link-color);
+    }
+
+    @media (max-width: 600px) {
+      .top-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-buttons">
+      <button class="btn" onclick="toggleTheme()">🌙/☀️ Tema Claro/Oscuro</button>
+      <a href="cv_pablo_carrazana.pdf" download class="btn">⬇️ Descargar PDF</a>
+    </div>
+
+    <h1>Pablo Carrazana</h1>
+    <p><strong>Ingeniero de Datos Semi Senior</strong> en Mercado Libre</p>
+
+    <div class="contacto">
+      <p><strong>Email:</strong> pablo.tuemail@gmail.com</p>
+      <p><strong>Ubicación:</strong> Córdoba Capital, Argentina</p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pablocarrazana/" target="_blank">pablocarrazana</a></p>
+    </div>
+
+    <h2>Perfil Profesional</h2>
+    <p>Ingeniero de datos con más de dos años de experiencia en e-commerce. Especializado en BigQuery, Python, calidad de datos y liderazgo en crecimiento. Me enfoco en generar soluciones eficientes y escalables en ambientes colaborativos.</p>
+
+    <h2>Experiencia Laboral</h2>
+    <ul>
+      <li><strong>Mercado Libre</strong> – Ingeniero de Datos Semi Senior (2023 - Actualidad)
+        <ul>
+          <li>Desarrollo y mantenimiento de pipelines con BigQuery y Python</li>
+          <li>Optimización de recursos y costos en la nube</li>
+          <li>Monitoreo y control de calidad de datos en el área de advertising</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>Educación</h2>
+    <ul>
+      <li><strong>Analista de Sistemas</strong> – [Nombre de la institución] (En curso – Graduación: marzo 2026)</li>
+    </ul>
+
+    <h2>Habilidades Técnicas</h2>
+    <ul>
+      <li>BigQuery, SQL avanzado</li>
+      <li>Python (automatización, limpieza y análisis de datos)</li>
+      <li>Modelado de datos, optimización de pipelines</li>
+      <li>Google Cloud Platform, Git, Linux</li>
+      <li>Power BI, Excel, Google Sheets</li>
+    </ul>
+
+    <h2>Proyectos</h2>
+    <div class="proyecto">
+      <strong>Automatización de reportes semanales</strong> – Pipeline en Python y BigQuery para generar informes automáticos.
+    </div>
+    <div class="proyecto">
+      <strong>Dashboard de ventas e intención de voto</strong> – Visualización con Power BI conectando CSV + Web + BBDD.
+    </div>
+    <div class="proyecto">
+      <strong>Sistema de mejora de procesos internos</strong> – Proyecto de análisis organizacional usando herramientas de modelado de procesos.
+    </div>
+
+    <div class="footer">
+      © 2025 Pablo Carrazana
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+    }
+  </script>
+</body>
+</html>
