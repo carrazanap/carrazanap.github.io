@@ -2,222 +2,194 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Pablo Carrazana - CV</title>
+  <title>Pablo Carrazana | CV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
-      --bg-color: #ffffff;
-      --text-color: #333;
-      --accent-color: #2c3e50;
-      --link-color: #0077b5;
+      --bg: #f8f9fa;
+      --text: #343a40;
+      --accent: #0077b5;
+      --card: #e9ecef;
     }
+
     body.dark {
-      --bg-color: #1e1e1e;
-      --text-color: #eee;
-      --accent-color: #61dafb;
-      --link-color: #4da3ff;
+      --bg: #121212;
+      --text: #f1f1f1;
+      --accent: #4da3ff;
+      --card: #1f1f1f;
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      margin: 0;
-      padding: 0;
+      margin:0; padding:0;
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       transition: background 0.3s, color 0.3s;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: var(--bg-color);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    .header {
+      background: var(--accent);
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
     }
 
-    h1, h2 {
-      color: var(--accent-color);
-      margin-bottom: 10px;
+    .header a {
+      color: #fff; text-decoration: underline;
+    }
+
+    .content {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
     }
 
     h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 4px;
+      color: var(--accent);
       margin-top: 30px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
     }
 
-    .contacto a {
-      text-decoration: none;
-      color: var(--link-color);
-    }
-
-    .contacto a:hover {
-      text-decoration: underline;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #777;
-    }
-
-    .top-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-
-    .btn {
-      padding: 8px 16px;
-      background-color: var(--accent-color);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-      font-size: 14px;
-    }
-
-    .btn:hover {
-      background-color: #1a2e3b;
-    }
-
-    .proyecto {
-      margin-bottom: 10px;
-    }
-
-    .proyecto a {
-      color: var(--link-color);
-    }
-
-    /* Timeline */
     .timeline {
       position: relative;
-      margin: 30px 0;
-      padding-left: 25px;
-      border-left: 3px solid var(--accent-color);
+      margin: 20px 0 40px 0;
+      padding-left: 30px;
+      border-left: 3px solid var(--accent);
     }
 
     .timeline-item {
-      margin-bottom: 30px;
       position: relative;
+      margin-bottom: 30px;
+      padding-left: 20px;
     }
 
     .timeline-item::before {
       content: "";
       position: absolute;
-      left: -11px;
-      top: 0;
-      width: 18px;
-      height: 18px;
-      background-color: var(--bg-color);
-      border: 3px solid var(--accent-color);
+      left: -13px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      background: var(--bg);
+      border: 3px solid var(--accent);
       border-radius: 50%;
     }
 
-    .timeline-date {
-      color: var(--link-color);
+    .date {
       font-weight: bold;
-      margin-bottom: 6px;
+      color: var(--accent);
+      margin-bottom: 5px;
+      font-size: 15px;
     }
 
-    .timeline-content h3 {
-      margin: 0;
+    .position {
       font-size: 18px;
-      color: var(--text-color);
+      font-weight: 600;
+      margin: 0;
     }
 
-    @media (max-width: 600px) {
+    .company {
+      margin: 2px 0 0;
+      font-size: 16px;
+    }
+
+    .skills, .education {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+
+    .skills li, .education li {
+      background: var(--card);
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 4px;
+    }
+
+    .top-buttons {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px auto;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      background: var(--accent);
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #055a94;
+    }
+
+    @media (max-width: 500px) {
       .top-buttons {
         flex-direction: column;
-        gap: 10px;
+        align-items: center;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="top-buttons">
-      <button class="btn" onclick="toggleTheme()">🌙/☀️ Tema Claro/Oscuro</button>
-      <a href="cv_pablo_carrazana.pdf" download class="btn">⬇️ Descargar PDF</a>
-    </div>
-
+  <div class="header">
     <h1>Pablo Carrazana</h1>
-    <p><strong>Ingeniero de Datos Semi Senior</strong> en Mercado Libre</p>
+    <p>Data & Analytics Technical Leader | Mercado Libre</p>
+    <p>Córdoba, Argentina · <a href="mailto:pablo.carrazana@example.com">pablo.carrazana@example.com</a> · <a href="https://www.linkedin.com/in/pablocarrazana/" target="_blank">LinkedIn</a></p>
+  </div>
 
-    <div class="contacto">
-      <p><strong>Email:</strong> pablo.tuemail@gmail.com</p>
-      <p><strong>Ubicación:</strong> Córdoba Capital, Argentina</p>
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pablocarrazana/" target="_blank">pablocarrazana</a></p>
-    </div>
+  <div class="top-buttons">
+    <button class="btn" onclick="toggleTheme()">🌙/☀️ Tema Claro/Oscuro</button>
+    <a class="btn" href="cv_pablo_carrazana.pdf" download>⬇️ Descargar CV (PDF)</a>
+  </div>
 
-    <h2>Perfil Profesional</h2>
-    <p>Ingeniero de datos con más de dos años de experiencia en e-commerce. Especializado en BigQuery, Python, calidad de datos y liderazgo en crecimiento. Me enfoco en generar soluciones eficientes y escalables en ambientes colaborativos.</p>
-
+  <div class="content">
     <h2>Experiencia Profesional</h2>
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-date">Ene 2025 – Actualidad</div>
-        <div class="timeline-content">
-          <h3>Data & Analytics Technical Leader</h3>
-          <p><strong>Mercado Libre</strong></p>
-        </div>
+        <div class="date">Ene 2025 – Actualidad</div>
+        <div class="position">Data & Analytics Technical Leader</div>
+        <div class="company">Mercado Libre</div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-date">Dic 2023 – Ene 2025</div>
-        <div class="timeline-content">
-          <h3>Sr Data & Analytics Engineer</h3>
-          <p><strong>Mercado Libre</strong></p>
-        </div>
+        <div class="date">Dic 2023 – Ene 2025</div>
+        <div class="position">Sr Data & Analytics Engineer</div>
+        <div class="company">Mercado Libre</div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-date">May 2022 – Dic 2023</div>
-        <div class="timeline-content">
-          <h3>Shipping Product Analytics</h3>
-          <p><strong>Mercado Libre</strong></p>
-        </div>
+        <div class="date">May 2022 – Dic 2023</div>
+        <div class="position">Shipping Product Analytics</div>
+        <div class="company">Mercado Libre</div>
       </div>
     </div>
 
     <h2>Educación</h2>
-    <ul>
-      <li><strong>Analista de Sistemas</strong> – [Nombre de la institución] (En curso – Graduación: marzo 2026)</li>
+    <ul class="education">
+      <li>Analista de Sistemas – Escuela Superior de Comercio Manuel Belgrano</li>
     </ul>
 
-    <h2>Habilidades Técnicas</h2>
-    <ul>
-      <li>BigQuery, SQL avanzado</li>
-      <li>Python (automatización, limpieza y análisis de datos)</li>
-      <li>Modelado de datos, optimización de pipelines</li>
-      <li>Google Cloud Platform, Git, Linux</li>
-      <li>Power BI, Excel, Google Sheets</li>
+    <h2>Habilidades</h2>
+    <ul class="skills">
+      <li>BigQuery & SQL</li>
+      <li>Python</li>
+      <li>Data Engineering</li>
+      <li>Visualización de datos</li>
+      <li>Trabajo colaborativo</li>
     </ul>
-
-    <h2>Proyectos</h2>
-    <div class="proyecto">
-      <strong>Automatización de reportes semanales</strong> – Pipeline en Python y BigQuery para generar informes automáticos.
-    </div>
-    <div class="proyecto">
-      <strong>Dashboard de ventas e intención de voto</strong> – Visualización con Power BI conectando CSV + Web + BBDD.
-    </div>
-    <div class="proyecto">
-      <strong>Sistema de mejora de procesos internos</strong> – Proyecto de análisis organizacional usando herramientas de modelado de procesos.
-    </div>
-
-    <div class="footer">
-      © 2025 Pablo Carrazana
-    </div>
   </div>
 
   <script>
     function toggleTheme() {
-      document.body.classList.toggle("dark");
+      document.body.classList.toggle('dark');
     }
   </script>
 </body>
