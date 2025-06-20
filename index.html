@@ -27,13 +27,10 @@
     gtag('js', new Date());
     gtag('config', 'G-DG0SLT5RY3');
   </script>
-
-  <!-- Estilos personalizados -->
-  <link rel="stylesheet" href="styles.css" /> <!-- <-- Mover estilos aquí -->
 </head>
 <body class="antialiased">
-  
-  <!-- ========== CONTROLES SUPERIORES (Idioma / Modo) ========== -->
+
+  <!-- CONTROLES DE IDIOMA Y MODO -->
   <div class="top-controls fixed top-6 right-6 z-50 flex gap-2">
     <div class="flex bg-gray-700/50 backdrop-blur-sm rounded-full border border-gray-600/50">
       <button id="lang-es" class="control-btn" data-lang="es">ES</button>
@@ -46,10 +43,10 @@
     </button>
   </div>
 
-  <!-- ========== CONTENIDO PRINCIPAL ========== -->
+  <!-- CONTENIDO PRINCIPAL -->
   <div id="page-content" class="container mx-auto max-w-5xl px-4 py-8">
 
-    <!-- ========== HEADER ========== -->
+    <!-- HEADER -->
     <header class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 mb-12 text-center lg:text-left">
       <div class="flex justify-center lg:justify-start mb-8 lg:mb-0">
         <div class="w-48 h-48 rounded-full border-4 border-sky-400 bg-cover bg-center"
@@ -71,7 +68,7 @@
       </div>
     </header>
 
-    <!-- ========== SECCIÓN SOBRE MÍ ========== -->
+    <!-- SOBRE MÍ -->
     <section class="p-6 glass-effect rounded-xl mb-8">
       <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom">Sobre mí</h3>
       <p class="leading-relaxed">
@@ -79,18 +76,74 @@
       </p>
     </section>
 
-    <!-- ========== MÁS SECCIONES AQUÍ (Contacto, Stack, Educación, etc.) ========== -->
-    <!-- Podes copiar desde tu versión original todo lo de: contacto, stack, proyectos, experiencia, etc. aquí -->
+    <!-- BLOQUE DE EXPERIENCIA PROFESIONAL CON LOGOS -->
+<section class="p-6 glass-effect rounded-xl animate-on-scroll">
+  <h3 class="text-2xl font-semibold mb-8 border-b pb-2 border-bottom">Experiencia Profesional</h3>
+  <div class="space-y-6">
+    <!-- EXPERIENCIA 1 -->
+    <div class="flex gap-4 items-start">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/MercadoLibre_logo.svg" alt="Mercado Libre logo" class="w-10 h-10 object-contain mt-1" />
+      <div>
+        <p class="text-sm font-semibold text-sky-400">Mar 2023 - Actualidad</p>
+        <h4 class="text-lg font-bold">Data Engineer</h4>
+        <p class="text-base font-semibold text-secondary">Mercado Libre</p>
+        <ul class="list-disc list-inside text-secondary text-sm mt-2 space-y-1">
+          <li>Lideré un equipo de +5 analistas y científicos de datos impulsando soluciones de IA.</li>
+          <li>Mejoramos eficiencia operativa en un 20% mediante automatización de reportes.</li>
+        </ul>
+      </div>
+    </div>
 
-    <!-- ========== FOOTER ========== -->
+    <!-- EXPERIENCIA 2 -->
+    <div class="flex gap-4 items-start">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Naranja_X_logo.png" alt="NaranjaX logo" class="w-10 h-10 object-contain mt-1" />
+      <div>
+        <p class="text-sm font-semibold text-sky-400">Feb 2022 - Mar 2023</p>
+        <h4 class="text-lg font-bold">Data Engineer</h4>
+        <p class="text-base font-semibold text-secondary">NaranjaX</p>
+        <ul class="list-disc list-inside text-secondary text-sm mt-2 space-y-1">
+          <li>Desarrollé dashboards estratégicos y una API REST desde cero.</li>
+          <li>Automatizamos procesos clave y migramos a BigQuery.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPERIENCIA 3 -->
+    <div class="flex gap-4 items-start">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Claro_Logo.svg" alt="Claro Argentina logo" class="w-10 h-10 object-contain mt-1" />
+      <div>
+        <p class="text-sm font-semibold text-sky-400">May 2021 - Feb 2022</p>
+        <h4 class="text-lg font-bold">Desarrollador Big Data</h4>
+        <p class="text-base font-semibold text-secondary">Claro Argentina</p>
+        <ul class="list-disc list-inside text-secondary text-sm mt-2 space-y-1">
+          <li>Coordiné roadmap de producto y análisis de métricas de adopción.</li>
+          <li>Impulsé mejoras en UX y estrategias de optimización.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPERIENCIA 4 -->
+    <div class="flex gap-4 items-start">
+      <img src="https://static.wixstatic.com/media/ca9cb0_687832b0bbf64a208c18f962ebbd6ee1~mv2.png" alt="Dicsys logo" class="w-10 h-10 object-contain mt-1 rounded" />
+      <div>
+        <p class="text-sm font-semibold text-sky-400">Feb 2019 - May 2021</p>
+        <h4 class="text-lg font-bold">Desarrollador Big Data</h4>
+        <p class="text-base font-semibold text-secondary">Dicsys S.A</p>
+        <ul class="list-disc list-inside text-secondary text-sm mt-2 space-y-1">
+          <li>Establecí KPIs regionales y lideré proyectos de mejora logística.</li>
+          <li>Optimicé tiempos de procesamiento en operaciones cross-docking.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- FOOTER -->
     <footer class="text-center text-secondary mt-16">
       <p>&copy; 2025 Pablo Carrazana. Diseñado con <i class="fas fa-heart text-red-500"></i> en Córdoba.</p>
     </footer>
 
   </div>
-
-  <!-- ========== JS PRINCIPAL ========== -->
-  <script src="main.js"></script>
 
 </body>
 </html>
