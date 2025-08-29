@@ -83,8 +83,7 @@
         @media (max-width: 640px) { .modal-content { padding: 1.5rem; max-width: 95%; max-height: 95vh; } }
         .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
-        #terminal-input { caret-color: #34d399; }
-        .terminal-line { white-space: pre-wrap; word-wrap: break-word; }
+
     </style>
 </head>
 <body class="antialiased">
@@ -98,18 +97,11 @@
         <button id="theme-toggle" class="control-btn">
             <i class="fas fa-sun hidden" id="dark-icon"></i>
             <i class="fas fa-moon" id="light-icon"></i>
-            <i class="fas fa-terminal hidden" id="terminal-icon"></i>
+
         </button>
     </div>
 
-    <!-- TERMINAL -->
-    <div id="terminal-container" class="hidden fixed inset-0 bg-black font-mono text-lg p-4 custom-scrollbar overflow-y-auto">
-        <div id="terminal-output"></div>
-        <div class="flex">
-            <span class="text-green-400">user@carrazanap:~$</span>
-            <input type="text" id="terminal-input" class="flex-grow bg-transparent border-none text-green-400 outline-none pl-2">
-        </div>
-    </div>
+
 
     <!-- MAIN PAGE CONTENT -->
     <div id="page-content" class="container mx-auto max-w-5xl px-4 py-8 sm:py-12 md:py-16">
@@ -256,7 +248,7 @@
             const experienceData = [ { id: 1, date: { es: "Marzo 2023 - actualidad", en: "March 2023 - Present" }, title: { es: "Data Engineer", en: "Data Engineer" }, company: `<img src="https://raw.githubusercontent.com/carrazanap/carrazanap.github.io/main/mercadolibre.png" alt="Logo Mercado Libre" style="width:180px;height:60px;margin-left:4px;margin-top:4px;vertical-align:middle;">`, description: { es: `<li>Diseñar y desarrollar dashboards estratégicos para la detección temprana de anomalías en streams de datos.</li><li>Automatizar modelos de datos mediante scripts optimizados, reduciendo costos operativos.</li><li>Elaborar reportes, dashboards y tablas ad hoc que facilitaron la toma de decisiones basada en datos.</li><li>Optimizar pipelines de procesamiento, mejorando el rendimiento y asegurando disponibilidad en tiempo real.</li><li>Identificar e implementar oportunidades de mejora en procesos de datos y monitoreo.</li>`, en: `<li>Designed and developed strategic dashboards for early anomaly detection in data streams.</li><li>Automated data models using optimized scripts, reducing operational costs.</li><li>Created ad hoc reports, dashboards, and tables to support data-driven decision-making.</li><li>Optimized data pipelines to improve performance and ensure real-time availability.</li><li>Identified and implemented process improvement opportunities.</li>` } }, { id: 2, date: { es: "Feb 2022 - Marzo 2023", en: "Feb 2022 - March 2023" }, title: { es: "Data Engineer", en: "Data Engineer" }, company: `<img src="https://upload.wikimedia.org/wikipedia/commons/3/35/NaranjaX-logo.svg" alt="Logo NaranjaX" style="width:100px;height:100px;margin-left:4px;vertical-align:middle;">`, description: { es: `<li>Ingesta y procesamiento de datos desde múltiples fuentes (APIs, bases de datos, URLs).</li><li>Implementación de soluciones en AWS (Athena, DynamoDB, Lambda, EMR, EC2, Glue).</li><li>Desarrollo de pipelines en Python y SQL (Snowflake).</li><li>Automatización de flujos de trabajo con Apache Airflow y Apache NiFi.</li><li>Control de versiones y CI/CD en GitLab.</li>`, en: `<li>Ingested and processed data from various sources (APIs, databases, URLs).</li><li>Implemented solutions using AWS (Athena, DynamoDB, Lambda, EMR, EC2, Glue).</li><li>Developed data pipelines in Python and SQL (Snowflake).</li><li>Automated workflows with Apache Airflow and Apache NiFi.</li><li>Used GitLab for version control and CI/CD.</li>` } }, { id: 3, date: { es: "May 2021 - Feb 2022", en: "May 2021 - Feb 2022" }, title: { es: "Desarrollador Big Data", en: "Big Data Developer" }, company: `<img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Logo_de_Claro.svg" alt="Logo Claro Argentina" style="width:100px;height:100px;margin-left:4px;vertical-align:middle;">`, description: { es: `<li>Desarrollo de procesos ETL utilizando Hadoop y Google Cloud Platform (BigQuery).</li><li>Automatización de tareas en Python mediante Jupyter Notebooks y Apache Airflow.</li><li>Construcción y mantenimiento de reportes BI con MicroStrategy y Tableau.</li><li>Desarrollo de workflows en Cloudera Impala.</li><li>Gestión de tareas en Jira y control de versiones en Bitbucket.</li><li>Gestión de proyecto para detección de fraude en billetera virtual, incluyendo diseño de alertas y modelos de análisis de comportamiento.</li><li>Desarrollo de proyecto de análisis de movilidad de usuarios durante la pandemia de COVID-19, basado en geolocalización y patrones de uso.</li>`, en: `<li>Developed ETL processes using Hadoop and Google Cloud Platform (BigQuery).</li><li>Automated tasks with Python using Jupyter Notebooks and Apache Airflow.</li><li>Built and maintained BI reports with MicroStrategy and Tableau.</li><li>Developed workflows with Cloudera Impala.</li><li>Managed tasks with Jira and used Bitbucket for version control.</li><li>Led a project to detect fraud in virtual wallets, including alert system design and behavioral analytics modeling.</li><li>Developed a user mobility analysis project during the COVID-19 pandemic, using geolocation and usage pattern data.</li>` } }, { id: 4, date: { es: "Feb 2019 - May 2021", en: "Feb 2019 - May 2021" }, title: { es: "Desarrollador Big Data", en: "Big Data Developer" }, company:  `<img src="https://raw.githubusercontent.com/carrazanap/carrazanap.github.io/main/dicsys.png" alt="Logo Dicsys" style="width:100px;height:30px;margin-left:4px;margin-top:4px;vertical-align:middle;">`, description: { es: `<li>Diseño y desarrollo de pipelines ETL en Hadoop y Google Cloud Platform (BigQuery).</li><li>Automatización de procesos usando Python, Jupyter y Apache Airflow.</li><li>Creación de reportes BI con MicroStrategy y Tableau.</li><li>Desarrollo de workflows con Cloudera Impala.</li><li>Control de versiones con Bitbucket y gestión de tareas en Jira.</li><li>Desarrollo de procesos y consultas en PL/SQL.</li>`, en: `<li>Designed and developed ETL pipelines in Hadoop and GCP (BigQuery).</li><li>Automated processes using Python, Jupyter, and Apache Airflow.</li><li>Created BI reports with MicroStrategy and Tableau.</li><li>Developed workflows with Cloudera Impala.</li><li>Used Bitbucket for version control and Jira for task management.</li><li>Built and optimized processes using PL/SQL.</li>` } }, { id: 5, date: { es: "Jul 2016 - May 2019", en: "Jul 2016 - May 2019" }, title: { es: "Soporte Big Data", en: "Support Big Data" }, company: `<img src="https://raw.githubusercontent.com/carrazanap/carrazanap.github.io/main/dicsys.png" alt="Logo Dicsys" style="width:100px;height:30px;margin-left:4px;margin-top:4px;vertical-align:middle;">`, description: { es: `<li>Monitoreo de procesos mediante Control-M y PowerCenter.</li><li>Resolución de errores en procesos ETL y actualizaciones de tablas.</li><li>Análisis y corrección de inconsistencias en datos.</li><li>Debug y revisión de queries en MicroStrategy y SAP Business Objects.</li><li>Elaboración de reportes para sectores como Atención al Cliente, Comercial, Facturación, Oficios Judiciales, entre otros.</li>`, en: `<li>Monitored processes using Control-M and PowerCenter.</li><li>Resolved issues in ETL workflows and table updates.</li><li>Analyzed and corrected data inconsistencies.</li><li>Debugged and optimized queries in MicroStrategy and SAP Business Objects.</li><li>Delivered reports to departments such as Customer Service, Commercial, Billing, and Legal.</li>` } } ];
             const educationData = [ { title: {es: "Analista Universitario de Sistemas Informáticos", en: "University Technician in Information Systems"}, school: "Escuela Superior Manuel Belgrano – Universidad Nacional de Córdoba", date: "2023 - 2026" }, { title: {es: "Ingeniería en Sistemas de Información (Cursado hasta 3er año)", en: "Bachelor’s Degree in Information Systems Engineering (Completed up to 3rd year)"}, school: "Universidad Tecnológica Nacional (UTN) – Facultad Regional Córdoba", date: "2011 - 2015" }];
             const certifications = ["Data & AI Tools for Practitioners", "BigQuery de Cero a Heroe", "Data Driven Decision Making", "DIPLOMATURA EN CIENCIA DE DATOS, APRENDIZAJE AUTOMÁTICO Y SUS APLICACIONES"];
-            const translations = { job_title: { es: "Data Engineer en Mercado Libre", en: "Data Engineer at Mercado Libre" }, contact_title: { es: "Contacto", en: "Contact" }, download_btn: { es: "Descargar CV", en: "Download CV" }, stack_title: { es: "Stack Tecnológico", en: "Tech Stack" }, stack_backend: { es: "Backend & Datos", en: "Backend & Data" }, stack_ml: { es: "Machine Learning", en: "Machine Learning" }, stack_ai: { es: "IA & Automatización", en: "AI & Automation" }, stack_bi: { es: "Business Intelligence", en: "Business Intelligence" }, stack_productivity: { es: "Productividad", en: "Productivity" }, education_title: { es: "Educación", en: "Education" }, cert_lang_title: { es: "Certificaciones e Idiomas", en: "Certifications & Languages"}, languages_title: { es: "Idiomas", en: "Languages"}, lang_es: { es: "Español (Nativo)", en: "Spanish (Native)"}, lang_en: { es: "Inglés (B1 - Intermedio)", en: "English (B1 - Intermediate)"}, cert_title: { es: "Formación Complementaria", en: "Complementary Training"}, about_title: { es: "Sobre mí", en: "About Me"}, about_text: { es: `Ingeniero de datos apasionado por la tecnología y el análisis. Actualmente diseño y mantengo pipelines en el equipo de Advertising de Mercado Libre, trabajando con BigQuery, Python y sistemas distribuidos. Me caracterizo por mi proactividad, adaptabilidad y enfoque en la mejora continua.`, en: `Currently designing and maintaining data pipelines in the Advertising team at Mercado Libre, working with BigQuery, Python, and distributed systems. Known for being proactive, adaptable, and focused on continuous improvement.` }, projects_title: { es: "Proyectos Destacados", en: "Featured Projects"}, experience_title: { es: "Experiencia Profesional", en: "Professional Experience"}, view_repo: { es: "Ver Repositorio", en: "View Repository" }, footer_design: { es: "Diseñado con", en: "Designed with"}, footer_location: { es: "en Cordoba", en: "in Cordoba"}, calendly_btn: { es: "Agenda un espacio conmigo", en: "Schedule time with me" }, see_more: { es: "Ver más", en: "See more" }, terminal:{welcome:{es:'Bienvenido a mi CV interactivo. Escribe "help" para ver la lista de comandos.',en:'Welcome to my interactive CV. Type "help" to see the list of commands.'},help:{es:'Comandos disponibles:\n- about\n- experience\n- projects [--tag <tecnología>]\n- contact\n- clear\n- gui (volver a la vista normal)',en:'Available commands:\n- about\n- experience\n- projects [--tag <technology>]\n- contact\n- clear\n- gui (return to normal view)'},tag_error:{es:'Error: Debes especificar una tecnología después de --tag.',en:'Error: You must specify a technology after --tag.'},projects_with_tag:{es:'--- Proyectos con la tecnología: {tag} ---',en:'--- Projects with technology: {tag} ---'},projects_all:{es:'--- Proyectos Destacados ---',en:'--- Featured Projects ---'},projects_not_found:{es:'No se encontraron proyectos para esa tecnología.',en:'No projects found for that technology.'},experience_header:{es:'--- Experiencia Profesional ---',en:'--- Professional Experience ---'},contact_details:{es:'- Ubicación: Cordoba, Argentina\\n- Teléfono: +54 9 351 5469885\\n- Email: carrazanap@gmail.com',en:'- Location: Cordoba, Argentina\\n- Phone: +54 9 351 5469885\\n- Email: carrazanap@gmail.com'},command_not_found:{es:'bash: command not found: {command}',en:'bash: command not found: {command}'}}};
+            const translations = { job_title: { es: "Data Engineer en Mercado Libre", en: "Data Engineer at Mercado Libre" }, contact_title: { es: "Contacto", en: "Contact" }, download_btn: { es: "Descargar CV", en: "Download CV" }, stack_title: { es: "Stack Tecnológico", en: "Tech Stack" }, stack_backend: { es: "Backend & Datos", en: "Backend & Data" }, stack_ml: { es: "Machine Learning", en: "Machine Learning" }, stack_ai: { es: "IA & Automatización", en: "AI & Automation" }, stack_bi: { es: "Business Intelligence", en: "Business Intelligence" }, stack_productivity: { es: "Productividad", en: "Productivity" }, education_title: { es: "Educación", en: "Education" }, cert_lang_title: { es: "Certificaciones e Idiomas", en: "Certifications & Languages"}, languages_title: { es: "Idiomas", en: "Languages"}, lang_es: { es: "Español (Nativo)", en: "Spanish (Native)"}, lang_en: { es: "Inglés (B1 - Intermedio)", en: "English (B1 - Intermediate)"}, cert_title: { es: "Formación Complementaria", en: "Complementary Training"}, about_title: { es: "Sobre mí", en: "About Me"}, about_text: { es: `Ingeniero de datos apasionado por la tecnología y el análisis. Actualmente diseño y mantengo pipelines en el equipo de Advertising de Mercado Libre, trabajando con BigQuery, Python y sistemas distribuidos. Me caracterizo por mi proactividad, adaptabilidad y enfoque en la mejora continua.`, en: `Currently designing and maintaining data pipelines in the Advertising team at Mercado Libre, working with BigQuery, Python, and distributed systems. Known for being proactive, adaptable, and focused on continuous improvement.` }, projects_title: { es: "Proyectos Destacados", en: "Featured Projects"}, experience_title: { es: "Experiencia Profesional", en: "Professional Experience"}, view_repo: { es: "Ver Repositorio", en: "View Repository" }, footer_design: { es: "Diseñado con", en: "Designed with"}, footer_location: { es: "en Cordoba", en: "in Cordoba"}, calendly_btn: { es: "Agenda un espacio conmigo", en: "Schedule time with me" }, see_more: { es: "Ver más", en: "See more" }};
         
             let currentFilter = null;
         
@@ -490,104 +482,7 @@
                 console.log("🛠️  Si ves errores arriba, alguna función no está bien expuesta al scope global.");
             };
 
-            // =================================================================================
-            // --- 3. TERMINAL FUNCTIONS
-            // =================================================================================
-            function initTerminal(lang) {
-                const terminalOutput = document.getElementById('terminal-output');
-                if (terminalOutput) {
-                    terminalOutput.innerHTML = ''; // Limpia la salida anterior
-                    printToTerminal(translations.terminal.welcome[lang]);
-                }
-            }
-            
-            function printToTerminal(text) {
-                const terminalOutput = document.getElementById('terminal-output');
-                if (!terminalOutput) return;
-                const line = document.createElement('div');
-                line.innerHTML = text.replace(/\n/g, '<br>'); // Replace newlines with <br> for HTML
-                line.classList.add('terminal-line', 'text-green-400');
-                terminalOutput.appendChild(line);
-            }
-        
-            function toggleTerminal(show) {
-                const terminalContainer = document.getElementById('terminal-container');
-                const mainContent = document.getElementById('page-content');
-                const terminalInput = document.getElementById('terminal-input');
-                if (show) {
-                    terminalContainer.classList.remove('hidden');
-                    mainContent.classList.add('hidden');
-                    terminalInput.focus();
-                } else {
-                    terminalContainer.classList.add('hidden');
-                    mainContent.classList.remove('hidden');
-                }
-            }
-        
-            function handleCommand(command) {
-                const lang = localStorage.getItem('language') || 'es';
-                const parts = command.split(' ');
-                const baseCommand = parts[0];
-                const argument = parts.length > 1 ? parts.slice(1).join(' ') : null;
-    
-                switch (baseCommand) {
-                    case 'help':
-                        printToTerminal(translations.terminal.help[lang]);
-                        break;
-                    case 'about':
-                        printToTerminal(translations.about_text[lang]);
-                        break;
-                    case 'experience':
-                        let expOutput = `${translations.terminal.experience_header[lang]}\n\n`;
-                        experienceData.forEach(job => {
-                            expOutput += `[${job.date[lang]}]\n`;
-                            expOutput += `${job.title[lang]} @ ${job.company}\n\n`;
-                        });
-                        printToTerminal(expOutput);
-                        break;
-                    case 'projects':
-                        let filteredProjects = projectsData;
-                        if (argument && argument.startsWith('--tag')) {
-                            const tag = argument.split(' ')[1];
-                            if(tag){
-                                filteredProjects = projectsData.filter(p => p.tags.map(t => t.toLowerCase()).includes(tag.toLowerCase()));
-                                printToTerminal(translations.terminal.projects_with_tag[lang].replace('{tag}', tag));
-                            } else {
-                                 printToTerminal(translations.terminal.tag_error[lang]);
-                                 return;
-                            }
-                        } else {
-                            printToTerminal(translations.terminal.projects_all[lang]);
-                        }
-    
-                        if(filteredProjects.length === 0){
-                            printToTerminal(translations.terminal.projects_not_found[lang]);
-                        } else {
-                            let projOutput = `\n`;
-                            filteredProjects.forEach(proj => {
-                                projOutput += `[${proj.tags.join(', ')}]\n`;
-                                projOutput += `${proj.title[lang]}\n\n`;
-                            });
-                            printToTerminal(projOutput);
-                        }
-                        break;
-                    case 'contact':
-                        printToTerminal(translations.terminal.contact_details[lang]);
-                        break;
-                    case 'clear':
-                        // Limpia la pantalla, no necesita traducción.
-                        document.getElementById('terminal-output').innerHTML = '';
-                        break;
-                    case 'gui':
-                        // Vuelve a la GUI, no necesita traducción.
-                        localStorage.setItem('theme', 'dark'); 
-                        location.reload(); 
-                        break;
-                    default:
-                        printToTerminal(translations.terminal.command_not_found[lang].replace('{command}', command));
-                        break;
-                }
-            }
+
         
             // =================================================================================
             // --- 4. MAIN EXECUTION (Cuando el DOM está listo)
@@ -597,32 +492,23 @@
             const themeToggle = document.getElementById('theme-toggle');
             const darkIcon = document.getElementById('dark-icon');
             const lightIcon = document.getElementById('light-icon');
-            const terminalIcon = document.getElementById('terminal-icon');
             const langEsBtn = document.getElementById('lang-es');
             const langEnBtn = document.getElementById('lang-en');
-            const terminalInput = document.getElementById('terminal-input');
         
             // --- App State ---
             let currentTheme = localStorage.getItem('theme') || 'dark';
         
             // --- Theme Application Logic ---
             const applyTheme = (theme) => {
-                terminalIcon.classList.add('hidden');
                 lightIcon.classList.add('hidden');
                 darkIcon.classList.add('hidden');
                 
-                if (theme === 'cli') {
-                    toggleTerminal(true);
-                    terminalIcon.classList.remove('hidden');
-                } else {
-                    toggleTerminal(false);
-                    if (theme === 'dark') {
-                        document.documentElement.classList.remove('light-mode');
-                        lightIcon.classList.remove('hidden');
-                    } else { // light
-                        document.documentElement.classList.add('light-mode');
-                        darkIcon.classList.remove('hidden');
-                    }
+                if (theme === 'dark') {
+                    document.documentElement.classList.remove('light-mode');
+                    lightIcon.classList.remove('hidden');
+                } else { // light
+                    document.documentElement.classList.add('light-mode');
+                    darkIcon.classList.remove('hidden');
                 }
             };
         
@@ -644,12 +530,6 @@
                 langEsBtn.classList.toggle('active', lang === 'es');
                 langEnBtn.classList.toggle('active', lang === 'en');
             
-                // LÍNEAS NUEVAS AÑADIDAS AQUÍ
-                // Si el tema actual es la terminal, la reinicia con el nuevo idioma.
-                if(currentTheme === 'cli') {
-                    initTerminal(lang);
-                }
-            
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -663,54 +543,20 @@
             
             // --- Event Listeners Setup ---
             themeToggle.addEventListener('click', () => {
-                if (currentTheme === 'dark') currentTheme = 'light';
-                else if (currentTheme === 'light') currentTheme = 'cli';
-                else currentTheme = 'dark';
-            
+                currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
                 localStorage.setItem('theme', currentTheme);
                 applyTheme(currentTheme);
-            
-                // LÍNEAS NUEVAS AÑADIDAS AQUÍ
-                // Si el nuevo tema es la terminal, la inicializa.
-                if (currentTheme === 'cli') {
-                    const currentLang = localStorage.getItem('language') || 'es';
-                    initTerminal(currentLang);
-                }
             });
             
             langEsBtn.addEventListener('click', () => setLanguage('es'));
             langEnBtn.addEventListener('click', () => setLanguage('en'));
             
-            terminalInput.addEventListener('keydown', (event) => {
-                if (event.key === "Enter") {
-                    event.preventDefault();
-                    const command = terminalInput.value.trim().toLowerCase();
-                    if (command) {
-                        printToTerminal(`<span class="text-gray-500">> ${command}</span>`);
-                        handleCommand(command);
-                    }
-                    terminalInput.value = "";
-                    const terminalContainer = document.getElementById('terminal-container');
-                    if (terminalContainer) {
-                        terminalContainer.scrollTop = terminalContainer.scrollHeight;
-                    }
-                }
-            });
-            
             // --- Initial Page Load Calls ---
             setupPdfGeneration(); 
-            
-            // LA LÍNEA printToTerminal(...) FUE BORRADA DE AQUÍ.
             
             const savedLang = localStorage.getItem('language') || 'es';
             applyTheme(currentTheme);
             setLanguage(savedLang);
-            
-            // LÍNEAS NUEVAS AÑADIDAS AQUÍ
-            // Si el tema guardado por defecto es la terminal, la inicializa al cargar la página.
-            if (currentTheme === 'cli') {
-                initTerminal(savedLang);
-            }
         });
     </script>
 </body>
