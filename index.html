@@ -7,15 +7,16 @@
     <link rel="icon" type="image/png" href="https://images.weserv.nl/?url=raw.githubusercontent.com/carrazanap/carrazanap/main/foto_perfil.jpg&mask=circle&w=32&h=32">
     
     <!-- SEO and Social Sharing Meta Tags -->
-    <meta name="description" content="CV interactivo de Pablo Carrazana, Data & Analytics Technical Leader en Mercado Libre. Explora mi experiencia, proyectos y stack tecnológico.">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="CV interactivo de Pablo Carrazana, Data Engineer en Mercado Libre. Explora mi experiencia, proyectos y stack tecnológico.">
     <meta name="author" content="Pablo Carrazana">
     <meta property="og:title" content="Pablo Carrazana - CV Interactivo">
-    <meta property="og:description" content="Data & Analytics Technical Leader con experiencia en ingeniería de datos, desarrollo backend y docencia. ¡Conoce mis proyectos y trayectoria!">
+    <meta property="og:description" content="Data Engineer con más de 6 años de experiencia en ingeniería de datos, BigQuery, Python y sistemas distribuidos.">
     <meta property="og:image" content="https://raw.githubusercontent.com/carrazanap/carrazanap.github.io/main/foto_perfil.jpg">
     <meta property="og:url" content="https://carrazanap.github.io/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Pablo Carrazana - CV Interactivo">
-    <meta name="twitter:description" content="Data & Analytics Technical Leader con experiencia en ingeniería de datos, desarrollo backend y docencia. ¡Conoce mis proyectos y trayectoria!">
+    <meta name="twitter:description" content="Data Engineer con más de 6 años de experiencia en ingeniería de datos, BigQuery, Python y sistemas distribuidos.">
     <meta name="twitter:image" content="https://raw.githubusercontent.com/carrazanap/carrazanap.github.io/main/foto_perfil.jpg">
 
     <!-- Google tag (gtag.js) -->
@@ -49,8 +50,6 @@
         .border-bottom { border-color: var(--border-color); }
         .icon-link { transition: color 0.3s ease, transform 0.3s ease; display: inline-block; color: var(--secondary-text-color); }
         .icon-link:hover { color: var(--primary-color); transform: scale(1.1); }
-        .x-logo { width: 28px; height: 28px; fill: var(--secondary-text-color); transition: fill 0.3s ease; }
-        .icon-link:hover .x-logo { fill: var(--primary-color); }
         .avoid-break { break-inside: avoid; }
         .tag { background-color: #374151; color: #d1d5db; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; transition: all 0.3s ease; cursor: pointer; border: 1px solid transparent; }
         html.light-mode .tag { background-color: #e5e7eb; color: #374151; }
@@ -73,7 +72,12 @@
         .timeline-item { cursor: pointer; padding: 1.5rem; position: relative; border-radius: 8px; }
         .see-more-indicator { position: absolute; top: 0.75rem; right: 1rem; opacity: 0; transition: opacity 0.3s ease; color: var(--primary-color); font-size: 0.875rem; font-weight: 600; display: flex; align-items: center; gap: 0.3rem; pointer-events: none; }
         .timeline-item:hover .see-more-indicator { opacity: 1; }
-        @media screen and (max-width: 768px) { .timeline::after { left: 20px; } .timeline-container { width: 100%; padding-left: 50px; padding-right: 15px; } .timeline-container.left, .timeline-container.right { left: 0%; } .timeline-container.left::after, .timeline-container.right::after { left: 10px; } }
+        @media screen and (max-width: 768px) {
+            .timeline::after { left: 20px; }
+            .timeline-container { width: 100%; padding-left: 50px; padding-right: 15px; }
+            .timeline-container.left, .timeline-container.right { left: 0; }
+            .timeline-container.left::after, .timeline-container.right::after { left: 10px; right: auto; }
+        }
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); z-index: 999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
         .modal-overlay.show { opacity: 1; visibility: visible; }
         .modal-content { padding: 2.5rem; border-radius: 1rem; max-width: 90%; width: 700px; max-height: 90vh; overflow-y: auto; position: relative; transform: scale(0.95); transition: transform 0.3s ease; }
@@ -83,25 +87,21 @@
         @media (max-width: 640px) { .modal-content { padding: 1.5rem; max-width: 95%; max-height: 95vh; } }
         .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
-
     </style>
 </head>
 <body class="antialiased">
 
     <!-- CONTROLS -->
     <div class="top-controls">
-        <div class="flex bg-gray-700/50 light:bg-gray-200/50 backdrop-blur-sm rounded-full border border-gray-600/50">
+        <div class="flex bg-gray-700/50 backdrop-blur-sm rounded-full border border-gray-600/50">
             <button id="lang-es" class="control-btn" data-lang="es">ES</button>
             <button id="lang-en" class="control-btn" data-lang="en">EN</button>
         </div>
         <button id="theme-toggle" class="control-btn">
             <i class="fas fa-sun hidden" id="dark-icon"></i>
             <i class="fas fa-moon" id="light-icon"></i>
-
         </button>
     </div>
-
-
 
     <!-- MAIN PAGE CONTENT -->
     <div id="page-content" class="container mx-auto max-w-5xl px-4 py-8 sm:py-12 md:py-16">
@@ -109,25 +109,17 @@
         <!-- HEADER BLOCK -->
         <header class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 mb-12 animate-on-scroll">
             <div class="lg:col-span-1 flex justify-center lg:justify-start mb-8 lg:mb-0">
-                 <div class="w-48 h-48 rounded-full border-4 border-sky-400 bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/carrazanap/carrazanap.github.io/main/foto_perfil.jpg');">
-                </div>
+                <div class="w-48 h-48 rounded-full border-4 border-sky-400 bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/carrazanap/carrazanap.github.io/main/foto_perfil.jpg');"></div>
             </div>
             <div class="lg:col-span-2 flex flex-col justify-center items-center text-center lg:items-start lg:text-left">
                 <h1 class="text-4xl sm:text-5xl font-bold">Pablo Carrazana</h1>
                 <h2 class="text-xl sm:text-2xl mt-2" data-translate="job_title">Data Engineer en Mercado Libre</h2>
                 <div class="flex items-center flex-wrap gap-4 mt-6">
-                   <a href="https://www.linkedin.com/in/carrazanap/" target="_blank" class="icon-link text-3xl" onclick="trackSocialClick(event, 'LinkedIn')"><i class="fab fa-linkedin"></i></a>
-                   <a href="https://github.com/carrazanap" target="_blank" class="icon-link text-3xl" onclick="trackSocialClick(event, 'GitHub')"><i class="fab fa-github"></i></a>
-                   <!-- Twitter/X link - Commented out for now, uncomment when ready to use
-                   <a href="https://x.com/tu-usuario-twitter" target="_blank" class="icon-link" onclick="trackSocialClick(event, 'Twitter/X')">
-                       <svg class="x-logo" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z"/>
-                       </svg>
-                   </a>
-                   -->
-                   <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/carrazanap/30min'});return false;" class="px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300 text-white" style="background-color: var(--primary-color);">
-                       <span data-translate="calendly_btn">Agenda un espacio conmigo</span>
-                   </button>
+                    <a href="https://www.linkedin.com/in/carrazanap/" target="_blank" class="icon-link text-3xl" onclick="trackSocialClick(event, 'LinkedIn')"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/carrazanap" target="_blank" class="icon-link text-3xl" onclick="trackSocialClick(event, 'GitHub')"><i class="fab fa-github"></i></a>
+                    <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/carrazanap/30min'});return false;" class="px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300 text-white" style="background-color: var(--primary-color);">
+                        <span data-translate="calendly_btn">Agenda un espacio conmigo</span>
+                    </button>
                 </div>
             </div>
         </header>
@@ -136,10 +128,9 @@
         <section class="p-6 glass-effect rounded-xl mb-8 animate-on-scroll interactive">
             <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="about_title">Sobre mí</h3>
             <p class="leading-relaxed" data-translate="about_text">
-                Líder técnico con más de 6 años de experiencia en Mercado Libre, enfocado en Data & Analytics. Apasionado por liderar equipos de alto rendimiento para resolver desafíos complejos de negocio mediante la innovación y la tecnología. Experto en alinear estrategias de datos con objetivos corporativos para impulsar la eficiencia y el crecimiento. Mi objetivo es continuar democratizando el comercio y los servicios financieros en América Latina, transformando la vida de millones de personas.
+                Ingeniero de datos apasionado por la tecnología y el análisis. Actualmente diseño y mantengo pipelines en el equipo de Advertising de Mercado Libre, trabajando con BigQuery, Python y sistemas distribuidos. Me caracterizo por mi proactividad, adaptabilidad y enfoque en la mejora continua.
             </p>
         </section>
-
 
         <!-- MAIN CONTENT GRID -->
         <main class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-8">
@@ -164,17 +155,13 @@
                 <!-- Tech Stack -->
                 <section class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll interactive">
                     <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="stack_title">Stack Tecnológico</h3>
-                    <div id="tech-stack-container" class="space-y-4">
-                         <!-- Tags will be dynamically populated here -->
-                    </div>
+                    <div id="tech-stack-container" class="space-y-4"></div>
                 </section>
                 
-                 <!-- Education -->
+                <!-- Education -->
                 <section class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll interactive">
                     <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="education_title">Educación</h3>
-                    <ul id="education-list" class="space-y-4 text-secondary">
-                        <!-- Education items inserted by JS -->
-                    </ul>
+                    <ul id="education-list" class="space-y-4 text-secondary"></ul>
                 </section>
 
                 <!-- Certifications & Languages -->
@@ -182,47 +169,39 @@
                     <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="cert_lang_title">Certificaciones e Idiomas</h3>
                     <div class="space-y-4">
                         <div>
-                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="languages_title">Idiomas</h4>
-                             <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
-                                 <li data-translate="lang_es">Español (Nativo)</li>
-                                 <li data-translate="lang_en">Inglés (C1 - Avanzado)</li>
-                             </ul>
+                            <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="languages_title">Idiomas</h4>
+                            <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
+                                <li data-translate="lang_es">Español (Nativo)</li>
+                                <li data-translate="lang_en">Inglés (C1 - Avanzado)</li>
+                            </ul>
                         </div>
                         <div>
                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="cert_title">Formación Complementaria</h4>
-                            <div id="cert-list" class="text-secondary text-sm space-y-2 max-h-48 overflow-y-auto pr-2 custom-scrollbar">
-                                <!-- Certs inserted by JS -->
-                            </div>
+                            <div id="cert-list" class="text-secondary text-sm space-y-2 max-h-48 overflow-y-auto pr-2 custom-scrollbar"></div>
                         </div>
                     </div>
                 </section>
-
             </div>
+
             <!-- ========== RIGHT COLUMN ========== -->
             <div class="lg:col-span-2 space-y-8">
                 <!-- Featured Projects -->
                 <section class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll">
                     <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="projects_title">Proyectos Destacados</h3>
-                    <div id="projects-container" class="space-y-6 max-h-[40rem] overflow-y-auto custom-scrollbar pr-2">
-                        <!-- Projects will be dynamically inserted here by JS -->
-                    </div>
+                    <div id="projects-container" class="space-y-6 max-h-[40rem] overflow-y-auto custom-scrollbar pr-2"></div>
                 </section>
                 
-                 <!-- Experience Timeline -->
+                <!-- Experience Timeline -->
                 <section class="p-6 glass-effect rounded-xl animate-on-scroll">
                     <h3 class="text-2xl font-semibold mb-8 border-b pb-2 border-bottom" data-translate="experience_title">Experiencia Profesional</h3>
-                    <div id="experience-timeline" class="timeline">
-                        <!-- Experience items will be dynamically inserted here by JS -->
-                    </div>
+                    <div id="experience-timeline" class="timeline"></div>
                 </section>
-
             </div>
         </main>
 
         <footer id="page-footer" class="text-center text-secondary mt-16 animate-on-scroll">
             <p>&copy; 2025 Pablo Carrazana. <span data-translate="footer_text">Diseñado en Cordoba Capital</span> 🌎</p>
         </footer>
-
     </div>
 
     <!-- MODAL FOR EXPERIENCE -->
@@ -235,38 +214,161 @@
             <ul id="modal-description" class="list-disc list-inside text-secondary space-y-2 text-base"></ul>
         </div>
     </div>
-    
-    <!-- TEMPORARY CONTAINER FOR PDF -->
-    <div id="pdf-experience-container" class="hidden"></div>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-    
+
             // =================================================================================
-            // --- 1. DATA AND GLOBAL VARIABLES
+            // --- 1. DATA
             // =================================================================================
-            const techStackData = { "Lenguajes & Programación": ["Python", "PL/SQL", "SQL", "C#"],"Base de Datos": ["MySQL", "Oracle", "PostgreSQL", "MongoDB", "BigQuery", "Amazon Athena", "Redis"], "Procesamiento y ETL": ["Apache Impala", "Apache NiFi", "Apache Airflow", "Apache Kafka", "Cloudera"], "Cloud Platforms": ["Google Cloud", "AWS"], "Web Frameworks": ["Flask", "Django"], "Containerización": ["Docker", "Docker Compose"], "Machine Learning": ["Machine Learning", "Predictive Models"], "Análisis de Datos & Finanzas": ["Data Analysis", "Finance", "Stock Market"], "Business Intelligence & Visualización": ["Looker", "Power BI", "Tableau", "MicroStrategy"], "Productividad": ["Jira", "Notion", "Trello", "Google Suite", "Microsoft Office"] };
-            const projectsData = [ { id: 1, tags: ['Python', 'Flask', 'Docker', 'Redis', 'Apache Kafka', 'Machine Learning'], title: { es: "[Machine Learning API] Proyecto Final – Diplomatura en Ciencia de Datos", en: "[Machine Learning API] Final Project – Data Science Diploma" }, description: { es: "Desarrollo e implementación de una API de Machine Learning para exponer modelos predictivos. El proyecto integra un entorno distribuido con Docker Compose, donde se orquestan servicios como Flask (API REST), Redis (caché y almacenamiento en memoria), y Apache Kafka (mensajería y procesamiento de eventos). Incluye monitoreo, pruebas de carga y tests automatizados.", en: "Development and implementation of a Machine Learning API to expose predictive models. The project integrates a distributed environment with Docker Compose, orchestrating services such as Flask (REST API), Redis (cache and in-memory storage), and Apache Kafka (messaging and event processing). It also includes monitoring, load testing, and automated tests." }, link: "https://github.com/carrazanap/ml-api-public" }, { id: 2, tags: ['Python', 'Machine Learning', 'Data Analysis', 'Finance', 'Stock Market'], title: { es: "[Machine Learning] Mentoría Machine Learning para Invertir en la Bolsa – Diplomatura en Ciencia de Datos", en: "[Machine Learning] Machine Learning Mentorship for Stock Market Investing – Data Science Diploma" }, description: { es: "Proyecto desarrollado en el marco de una mentoría de Machine Learning aplicada al mercado bursátil, como parte de la Diplomatura en Ciencia de Datos (DiploDatos 2021). El repositorio está organizado por trabajos prácticos (TP) y aborda diferentes etapas del flujo de trabajo predictivo: desde el análisis y modelado hasta la validación y visualización de resultados.", en: "Project completed as part of a Machine Learning mentorship focused on stock market investing, within the Data Science Diploma (DiploDatos 2021). The repository is structured by practical assignments (TPs), each corresponding to distinct stages of the predictive workflow—from data analysis and modeling to validation and results visualization." }, link: "https://github.com/Mentoria-Invera-DiploDatos2021/MLBolsaMentoria2021" } ];
-            const experienceData = [ { id: 1, date: { es: "Marzo 2023 - actualidad", en: "March 2023 - Present" }, title: { es: "Data Engineer", en: "Data Engineer" }, company: `<img src="https://raw.githubusercontent.com/carrazanap/carrazanap.github.io/main/mercadolibre.png" alt="Logo Mercado Libre" style="width:180px;height:60px;margin-left:4px;margin-top:4px;vertical-align:middle;">`, description: { es: `<li>Diseñar y desarrollar dashboards estratégicos para la detección temprana de anomalías en streams de datos.</li><li>Automatizar modelos de datos mediante scripts optimizados, reduciendo costos operativos.</li><li>Elaborar reportes, dashboards y tablas ad hoc que facilitaron la toma de decisiones basada en datos.</li><li>Optimizar pipelines de procesamiento, mejorando el rendimiento y asegurando disponibilidad en tiempo real.</li><li>Identificar e implementar oportunidades de mejora en procesos de datos y monitoreo.</li>`, en: `<li>Designed and developed strategic dashboards for early anomaly detection in data streams.</li><li>Automated data models using optimized scripts, reducing operational costs.</li><li>Created ad hoc reports, dashboards, and tables to support data-driven decision-making.</li><li>Optimized data pipelines to improve performance and ensure real-time availability.</li><li>Identified and implemented process improvement opportunities.</li>` } }, { id: 2, date: { es: "Feb 2022 - Marzo 2023", en: "Feb 2022 - March 2023" }, title: { es: "Data Engineer", en: "Data Engineer" }, company: `<img src="https://upload.wikimedia.org/wikipedia/commons/3/35/NaranjaX-logo.svg" alt="Logo NaranjaX" style="width:100px;height:100px;margin-left:4px;vertical-align:middle;">`, description: { es: `<li>Ingesta y procesamiento de datos desde múltiples fuentes (APIs, bases de datos, URLs).</li><li>Implementación de soluciones en AWS (Athena, DynamoDB, Lambda, EMR, EC2, Glue).</li><li>Desarrollo de pipelines en Python y SQL (Snowflake).</li><li>Automatización de flujos de trabajo con Apache Airflow y Apache NiFi.</li><li>Control de versiones y CI/CD en GitLab.</li>`, en: `<li>Ingested and processed data from various sources (APIs, databases, URLs).</li><li>Implemented solutions using AWS (Athena, DynamoDB, Lambda, EMR, EC2, Glue).</li><li>Developed data pipelines in Python and SQL (Snowflake).</li><li>Automated workflows with Apache Airflow and Apache NiFi.</li><li>Used GitLab for version control and CI/CD.</li>` } }, { id: 3, date: { es: "May 2021 - Feb 2022", en: "May 2021 - Feb 2022" }, title: { es: "Desarrollador Big Data", en: "Big Data Developer" }, company: `<img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Logo_de_Claro.svg" alt="Logo Claro Argentina" style="width:100px;height:100px;margin-left:4px;vertical-align:middle;">`, description: { es: `<li>Desarrollo de procesos ETL utilizando Hadoop y Google Cloud Platform (BigQuery).</li><li>Automatización de tareas en Python mediante Jupyter Notebooks y Apache Airflow.</li><li>Construcción y mantenimiento de reportes BI con MicroStrategy y Tableau.</li><li>Desarrollo de workflows en Cloudera Impala.</li><li>Gestión de tareas en Jira y control de versiones en Bitbucket.</li><li>Gestión de proyecto para detección de fraude en billetera virtual, incluyendo diseño de alertas y modelos de análisis de comportamiento.</li><li>Desarrollo de proyecto de análisis de movilidad de usuarios durante la pandemia de COVID-19, basado en geolocalización y patrones de uso.</li>`, en: `<li>Developed ETL processes using Hadoop and Google Cloud Platform (BigQuery).</li><li>Automated tasks with Python using Jupyter Notebooks and Apache Airflow.</li><li>Built and maintained BI reports with MicroStrategy and Tableau.</li><li>Developed workflows with Cloudera Impala.</li><li>Managed tasks with Jira and used Bitbucket for version control.</li><li>Led a project to detect fraud in virtual wallets, including alert system design and behavioral analytics modeling.</li><li>Developed a user mobility analysis project during the COVID-19 pandemic, using geolocation and usage pattern data.</li>` } }, { id: 4, date: { es: "Feb 2019 - May 2021", en: "Feb 2019 - May 2021" }, title: { es: "Desarrollador Big Data", en: "Big Data Developer" }, company:  `<img src="https://raw.githubusercontent.com/carrazanap/carrazanap.github.io/main/dicsys.png" alt="Logo Dicsys" style="width:100px;height:30px;margin-left:4px;margin-top:4px;vertical-align:middle;">`, description: { es: `<li>Diseño y desarrollo de pipelines ETL en Hadoop y Google Cloud Platform (BigQuery).</li><li>Automatización de procesos usando Python, Jupyter y Apache Airflow.</li><li>Creación de reportes BI con MicroStrategy y Tableau.</li><li>Desarrollo de workflows con Cloudera Impala.</li><li>Control de versiones con Bitbucket y gestión de tareas en Jira.</li><li>Desarrollo de procesos y consultas en PL/SQL.</li>`, en: `<li>Designed and developed ETL pipelines in Hadoop and GCP (BigQuery).</li><li>Automated processes using Python, Jupyter, and Apache Airflow.</li><li>Created BI reports with MicroStrategy and Tableau.</li><li>Developed workflows with Cloudera Impala.</li><li>Used Bitbucket for version control and Jira for task management.</li><li>Built and optimized processes using PL/SQL.</li>` } }, { id: 5, date: { es: "Jul 2016 - May 2019", en: "Jul 2016 - May 2019" }, title: { es: "Soporte Big Data", en: "Support Big Data" }, company: `<img src="https://raw.githubusercontent.com/carrazanap/carrazanap.github.io/main/dicsys.png" alt="Logo Dicsys" style="width:100px;height:30px;margin-left:4px;margin-top:4px;vertical-align:middle;">`, description: { es: `<li>Monitoreo de procesos mediante Control-M y PowerCenter.</li><li>Resolución de errores en procesos ETL y actualizaciones de tablas.</li><li>Análisis y corrección de inconsistencias en datos.</li><li>Debug y revisión de queries en MicroStrategy y SAP Business Objects.</li><li>Elaboración de reportes para sectores como Atención al Cliente, Comercial, Facturación, Oficios Judiciales, entre otros.</li>`, en: `<li>Monitored processes using Control-M and PowerCenter.</li><li>Resolved issues in ETL workflows and table updates.</li><li>Analyzed and corrected data inconsistencies.</li><li>Debugged and optimized queries in MicroStrategy and SAP Business Objects.</li><li>Delivered reports to departments such as Customer Service, Commercial, Billing, and Legal.</li>` } } ];
-            const educationData = [ { title: {es: "Analista Universitario de Sistemas Informáticos", en: "University Technician in Information Systems"}, school: "Escuela Superior Manuel Belgrano – Universidad Nacional de Córdoba", date: "2023 - 2026" }, { title: {es: "Ingeniería en Sistemas de Información (Cursado hasta 3er año)", en: "Bachelor’s Degree in Information Systems Engineering (Completed up to 3rd year)"}, school: "Universidad Tecnológica Nacional (UTN) – Facultad Regional Córdoba", date: "2011 - 2015" }];
-            const certifications = ["Data & AI Tools for Practitioners", "BigQuery de Cero a Heroe", "Data Driven Decision Making", "DIPLOMATURA EN CIENCIA DE DATOS, APRENDIZAJE AUTOMÁTICO Y SUS APLICACIONES"];
-            const translations = { job_title: { es: "Data Engineer en Mercado Libre", en: "Data Engineer at Mercado Libre" }, contact_title: { es: "Contacto", en: "Contact" }, download_btn: { es: "Descargar CV", en: "Download CV" }, stack_title: { es: "Stack Tecnológico", en: "Tech Stack" }, stack_lenguajes_programacion: { es: "Lenguajes & Programación", en: "Languages & Programming" }, stack_base_datos: { es: "Base de Datos", en: "Databases" }, stack_procesamiento_etl: { es: "Procesamiento y ETL", en: "Processing & ETL" }, stack_cloud_platforms: { es: "Cloud Platforms", en: "Cloud Platforms" }, stack_web_frameworks: { es: "Web Frameworks", en: "Web Frameworks" }, stack_containerizacion: { es: "Containerización", en: "Containerization" }, stack_machine_learning: { es: "Machine Learning", en: "Machine Learning" }, stack_analisis_datos_finanzas: { es: "Análisis de Datos & Finanzas", en: "Data Analysis & Finance" }, stack_business_intelligence: { es: "Business Intelligence & Visualización", en: "Business Intelligence & Visualization" }, stack_productividad: { es: "Productividad", en: "Productivity" }, education_title: { es: "Educación", en: "Education" }, cert_lang_title: { es: "Certificaciones e Idiomas", en: "Certifications & Languages"}, languages_title: { es: "Idiomas", en: "Languages"}, lang_es: { es: "Español (Nativo)", en: "Spanish (Native)"}, lang_en: { es: "Inglés (B1 - Intermedio)", en: "English (B1 - Intermediate)"}, cert_title: { es: "Formación Complementaria", en: "Complementary Training"}, about_title: { es: "Sobre mí", en: "About Me"}, about_text: { es: `Ingeniero de datos apasionado por la tecnología y el análisis. Actualmente diseño y mantengo pipelines en el equipo de Advertising de Mercado Libre, trabajando con BigQuery, Python y sistemas distribuidos. Me caracterizo por mi proactividad, adaptabilidad y enfoque en la mejora continua.`, en: `Currently designing and maintaining data pipelines in the Advertising team at Mercado Libre, working with BigQuery, Python, and distributed systems. Known for being proactive, adaptable, and focused on continuous improvement.` }, projects_title: { es: "Proyectos Destacados", en: "Featured Projects"}, experience_title: { es: "Experiencia Profesional", en: "Professional Experience"}, view_repo: { es: "Ver Repositorio", en: "View Repository" }, calendly_btn: { es: "Agenda un espacio conmigo", en: "Schedule time with me" }, see_more: { es: "Ver más", en: "See more" }, footer_text: { es: "Diseñado en Cordoba Capital", en: "Designed in Cordoba" }};
-        
+            const techStackData = {
+                "Lenguajes & Programación": ["Python", "PL/SQL", "SQL", "C#"],
+                "Base de Datos": ["MySQL", "Oracle", "PostgreSQL", "MongoDB", "BigQuery", "Amazon Athena", "Redis"],
+                "Procesamiento y ETL": ["Apache Impala", "Apache NiFi", "Apache Airflow", "Apache Kafka", "Cloudera"],
+                "Cloud Platforms": ["Google Cloud", "AWS"],
+                "Web Frameworks": ["Flask", "Django"],
+                "Containerización": ["Docker", "Docker Compose"],
+                "Machine Learning": ["Machine Learning", "Predictive Models"],
+                "Análisis de Datos & Finanzas": ["Data Analysis", "Finance", "Stock Market"],
+                "Business Intelligence & Visualización": ["Looker", "Power BI", "Tableau", "MicroStrategy"],
+                "Productividad": ["Jira", "Notion", "Trello", "Google Suite", "Microsoft Office"]
+            };
+
+            const projectsData = [
+                {
+                    id: 1,
+                    tags: ['Python', 'Flask', 'Docker', 'Redis', 'Apache Kafka', 'Machine Learning'],
+                    title: { es: "[Machine Learning API] Proyecto Final – Diplomatura en Ciencia de Datos", en: "[Machine Learning API] Final Project – Data Science Diploma" },
+                    description: {
+                        es: "Desarrollo e implementación de una API de Machine Learning para exponer modelos predictivos. El proyecto integra un entorno distribuido con Docker Compose, donde se orquestan servicios como Flask (API REST), Redis (caché y almacenamiento en memoria), y Apache Kafka (mensajería y procesamiento de eventos). Incluye monitoreo, pruebas de carga y tests automatizados.",
+                        en: "Development and implementation of a Machine Learning API to expose predictive models. The project integrates a distributed environment with Docker Compose, orchestrating services such as Flask (REST API), Redis (cache and in-memory storage), and Apache Kafka (messaging and event processing). It also includes monitoring, load testing, and automated tests."
+                    },
+                    link: "https://github.com/carrazanap/ml-api-public"
+                },
+                {
+                    id: 2,
+                    tags: ['Python', 'Machine Learning', 'Data Analysis', 'Finance', 'Stock Market'],
+                    title: { es: "[Machine Learning] Mentoría ML para Invertir en la Bolsa – Diplomatura en Ciencia de Datos", en: "[Machine Learning] ML Mentorship for Stock Market Investing – Data Science Diploma" },
+                    description: {
+                        es: "Proyecto desarrollado en el marco de una mentoría de Machine Learning aplicada al mercado bursátil, como parte de la Diplomatura en Ciencia de Datos (DiploDatos 2021). El repositorio está organizado por trabajos prácticos (TP) y aborda diferentes etapas del flujo de trabajo predictivo: desde el análisis y modelado hasta la validación y visualización de resultados.",
+                        en: "Project completed as part of a Machine Learning mentorship focused on stock market investing, within the Data Science Diploma (DiploDatos 2021). The repository is structured by practical assignments covering the full predictive workflow — from data analysis and modeling to validation and results visualization."
+                    },
+                    link: "https://github.com/Mentoria-Invera-DiploDatos2021/MLBolsaMentoria2021"
+                }
+            ];
+
+            const experienceData = [
+                {
+                    id: 1,
+                    date: { es: "Marzo 2023 - actualidad", en: "March 2023 - Present" },
+                    title: { es: "Data Engineer", en: "Data Engineer" },
+                    company: `<img src="https://raw.githubusercontent.com/carrazanap/carrazanap.github.io/main/mercadolibre.png" alt="Logo Mercado Libre" style="width:180px;height:60px;margin-left:4px;margin-top:4px;vertical-align:middle;">`,
+                    description: {
+                        es: `<li>Diseñar y desarrollar dashboards estratégicos para la detección temprana de anomalías en streams de datos.</li><li>Automatizar modelos de datos mediante scripts optimizados, reduciendo costos operativos.</li><li>Elaborar reportes, dashboards y tablas ad hoc que facilitaron la toma de decisiones basada en datos.</li><li>Optimizar pipelines de procesamiento, mejorando el rendimiento y asegurando disponibilidad en tiempo real.</li><li>Identificar e implementar oportunidades de mejora en procesos de datos y monitoreo.</li>`,
+                        en: `<li>Designed and developed strategic dashboards for early anomaly detection in data streams.</li><li>Automated data models using optimized scripts, reducing operational costs.</li><li>Created ad hoc reports, dashboards, and tables to support data-driven decision-making.</li><li>Optimized data pipelines to improve performance and ensure real-time availability.</li><li>Identified and implemented process improvement opportunities.</li>`
+                    }
+                },
+                {
+                    id: 2,
+                    date: { es: "Feb 2022 - Marzo 2023", en: "Feb 2022 - March 2023" },
+                    title: { es: "Data Engineer", en: "Data Engineer" },
+                    company: `<img src="https://upload.wikimedia.org/wikipedia/commons/3/35/NaranjaX-logo.svg" alt="Logo NaranjaX" style="width:100px;height:100px;margin-left:4px;vertical-align:middle;">`,
+                    description: {
+                        es: `<li>Ingesta y procesamiento de datos desde múltiples fuentes (APIs, bases de datos, URLs).</li><li>Implementación de soluciones en AWS (Athena, DynamoDB, Lambda, EMR, EC2, Glue).</li><li>Desarrollo de pipelines en Python y SQL (Snowflake).</li><li>Automatización de flujos de trabajo con Apache Airflow y Apache NiFi.</li><li>Control de versiones y CI/CD en GitLab.</li>`,
+                        en: `<li>Ingested and processed data from various sources (APIs, databases, URLs).</li><li>Implemented solutions using AWS (Athena, DynamoDB, Lambda, EMR, EC2, Glue).</li><li>Developed data pipelines in Python and SQL (Snowflake).</li><li>Automated workflows with Apache Airflow and Apache NiFi.</li><li>Used GitLab for version control and CI/CD.</li>`
+                    }
+                },
+                {
+                    id: 3,
+                    date: { es: "May 2021 - Feb 2022", en: "May 2021 - Feb 2022" },
+                    title: { es: "Desarrollador Big Data", en: "Big Data Developer" },
+                    company: `<img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Logo_de_Claro.svg" alt="Logo Claro Argentina" style="width:100px;height:100px;margin-left:4px;vertical-align:middle;">`,
+                    description: {
+                        es: `<li>Desarrollo de procesos ETL utilizando Hadoop y Google Cloud Platform (BigQuery).</li><li>Automatización de tareas en Python mediante Jupyter Notebooks y Apache Airflow.</li><li>Construcción y mantenimiento de reportes BI con MicroStrategy y Tableau.</li><li>Desarrollo de workflows en Cloudera Impala.</li><li>Gestión de tareas en Jira y control de versiones en Bitbucket.</li><li>Gestión de proyecto para detección de fraude en billetera virtual, incluyendo diseño de alertas y modelos de análisis de comportamiento.</li><li>Desarrollo de proyecto de análisis de movilidad de usuarios durante la pandemia de COVID-19, basado en geolocalización y patrones de uso.</li>`,
+                        en: `<li>Developed ETL processes using Hadoop and Google Cloud Platform (BigQuery).</li><li>Automated tasks with Python using Jupyter Notebooks and Apache Airflow.</li><li>Built and maintained BI reports with MicroStrategy and Tableau.</li><li>Developed workflows with Cloudera Impala.</li><li>Managed tasks with Jira and used Bitbucket for version control.</li><li>Led a project to detect fraud in virtual wallets, including alert system design and behavioral analytics modeling.</li><li>Developed a user mobility analysis project during the COVID-19 pandemic, using geolocation and usage pattern data.</li>`
+                    }
+                },
+                {
+                    id: 4,
+                    date: { es: "Feb 2019 - May 2021", en: "Feb 2019 - May 2021" },
+                    title: { es: "Desarrollador Big Data", en: "Big Data Developer" },
+                    company: `<img src="https://raw.githubusercontent.com/carrazanap/carrazanap.github.io/main/dicsys.png" alt="Logo Dicsys" style="width:100px;height:30px;margin-left:4px;margin-top:4px;vertical-align:middle;">`,
+                    description: {
+                        es: `<li>Diseño y desarrollo de pipelines ETL en Hadoop y Google Cloud Platform (BigQuery).</li><li>Automatización de procesos usando Python, Jupyter y Apache Airflow.</li><li>Creación de reportes BI con MicroStrategy y Tableau.</li><li>Desarrollo de workflows con Cloudera Impala.</li><li>Control de versiones con Bitbucket y gestión de tareas en Jira.</li><li>Desarrollo de procesos y consultas en PL/SQL.</li>`,
+                        en: `<li>Designed and developed ETL pipelines in Hadoop and GCP (BigQuery).</li><li>Automated processes using Python, Jupyter, and Apache Airflow.</li><li>Created BI reports with MicroStrategy and Tableau.</li><li>Developed workflows with Cloudera Impala.</li><li>Used Bitbucket for version control and Jira for task management.</li><li>Built and optimized processes using PL/SQL.</li>`
+                    }
+                },
+                {
+                    id: 5,
+                    date: { es: "Jul 2016 - May 2019", en: "Jul 2016 - May 2019" },
+                    title: { es: "Soporte Big Data", en: "Support Big Data" },
+                    company: `<img src="https://raw.githubusercontent.com/carrazanap/carrazanap.github.io/main/dicsys.png" alt="Logo Dicsys" style="width:100px;height:30px;margin-left:4px;margin-top:4px;vertical-align:middle;">`,
+                    description: {
+                        es: `<li>Monitoreo de procesos mediante Control-M y PowerCenter.</li><li>Resolución de errores en procesos ETL y actualizaciones de tablas.</li><li>Análisis y corrección de inconsistencias en datos.</li><li>Debug y revisión de queries en MicroStrategy y SAP Business Objects.</li><li>Elaboración de reportes para sectores como Atención al Cliente, Comercial, Facturación, Oficios Judiciales, entre otros.</li>`,
+                        en: `<li>Monitored processes using Control-M and PowerCenter.</li><li>Resolved issues in ETL workflows and table updates.</li><li>Analyzed and corrected data inconsistencies.</li><li>Debugged and optimized queries in MicroStrategy and SAP Business Objects.</li><li>Delivered reports to departments such as Customer Service, Commercial, Billing, and Legal.</li>`
+                    }
+                }
+            ];
+
+            const educationData = [
+                { title: { es: "Analista Universitario de Sistemas Informáticos", en: "University Technician in Information Systems" }, school: "Escuela Superior Manuel Belgrano – Universidad Nacional de Córdoba", date: "2023 - 2026" },
+                { title: { es: "Ingeniería en Sistemas de Información (Cursado hasta 3er año)", en: "Bachelor's Degree in Information Systems Engineering (Completed up to 3rd year)" }, school: "Universidad Tecnológica Nacional (UTN) – Facultad Regional Córdoba", date: "2011 - 2015" }
+            ];
+
+            const certifications = [
+                "Data & AI Tools for Practitioners",
+                "BigQuery de Cero a Heroe",
+                "Data Driven Decision Making",
+                "DIPLOMATURA EN CIENCIA DE DATOS, APRENDIZAJE AUTOMÁTICO Y SUS APLICACIONES"
+            ];
+
+            const translations = {
+                job_title:              { es: "Data Engineer en Mercado Libre", en: "Data Engineer at Mercado Libre" },
+                contact_title:          { es: "Contacto", en: "Contact" },
+                download_btn:           { es: "Descargar CV", en: "Download CV" },
+                stack_title:            { es: "Stack Tecnológico", en: "Tech Stack" },
+                stack_lenguajes_programacion: { es: "Lenguajes & Programación", en: "Languages & Programming" },
+                stack_base_datos:       { es: "Base de Datos", en: "Databases" },
+                stack_procesamiento_etl:{ es: "Procesamiento y ETL", en: "Processing & ETL" },
+                stack_cloud_platforms:  { es: "Cloud Platforms", en: "Cloud Platforms" },
+                stack_web_frameworks:   { es: "Web Frameworks", en: "Web Frameworks" },
+                stack_containerizacion: { es: "Containerización", en: "Containerization" },
+                stack_machine_learning: { es: "Machine Learning", en: "Machine Learning" },
+                stack_analisis_datos_finanzas: { es: "Análisis de Datos & Finanzas", en: "Data Analysis & Finance" },
+                stack_business_intelligence: { es: "Business Intelligence & Visualización", en: "Business Intelligence & Visualization" },
+                stack_productividad:    { es: "Productividad", en: "Productivity" },
+                education_title:        { es: "Educación", en: "Education" },
+                cert_lang_title:        { es: "Certificaciones e Idiomas", en: "Certifications & Languages" },
+                languages_title:        { es: "Idiomas", en: "Languages" },
+                lang_es:                { es: "Español (Nativo)", en: "Spanish (Native)" },
+                lang_en:                { es: "Inglés (C1 - Avanzado)", en: "English (C1 - Advanced)" },
+                cert_title:             { es: "Formación Complementaria", en: "Complementary Training" },
+                about_title:            { es: "Sobre mí", en: "About Me" },
+                about_text:             {
+                    es: `Ingeniero de datos apasionado por la tecnología y el análisis. Actualmente diseño y mantengo pipelines en el equipo de Advertising de Mercado Libre, trabajando con BigQuery, Python y sistemas distribuidos. Me caracterizo por mi proactividad, adaptabilidad y enfoque en la mejora continua.`,
+                    en: `Data engineer passionate about technology and analytics. Currently designing and maintaining pipelines in the Advertising team at Mercado Libre, working with BigQuery, Python, and distributed systems. Known for being proactive, adaptable, and driven by continuous improvement.`
+                },
+                projects_title:         { es: "Proyectos Destacados", en: "Featured Projects" },
+                experience_title:       { es: "Experiencia Profesional", en: "Professional Experience" },
+                view_repo:              { es: "Ver Repositorio", en: "View Repository" },
+                calendly_btn:           { es: "Agenda un espacio conmigo", en: "Schedule time with me" },
+                see_more:               { es: "Ver más", en: "See more" },
+                footer_text:            { es: "Diseñado en Cordoba Capital", en: "Designed in Cordoba" }
+            };
+
             let currentFilter = null;
-        
+
             // =================================================================================
-            // --- 2. GUI FUNCTIONS (Populate content, modals, etc.)
+            // --- 2. GUI FUNCTIONS
             // =================================================================================
-        
+
             function populateTechStack(lang) {
                 const container = document.getElementById('tech-stack-container');
-                if(!container) return;
+                if (!container) return;
                 container.innerHTML = '';
-                
-                // Mapeo de categorías a claves de traducción
                 const categoryMap = {
                     "Lenguajes & Programación": "stack_lenguajes_programacion",
-                    "Base de Datos": "stack_base_datos", 
+                    "Base de Datos": "stack_base_datos",
                     "Procesamiento y ETL": "stack_procesamiento_etl",
                     "Cloud Platforms": "stack_cloud_platforms",
                     "Web Frameworks": "stack_web_frameworks",
@@ -276,24 +378,23 @@
                     "Business Intelligence & Visualización": "stack_business_intelligence",
                     "Productividad": "stack_productividad"
                 };
-                
                 for (const category in techStackData) {
                     const categoryKey = categoryMap[category] || category;
-                    let tagsHTML = techStackData[category].map(tag => `<span class="tag" onclick="filterProjects('${tag}')">${tag}</span>`).join('');
+                    const tagsHTML = techStackData[category].map(tag => `<span class="tag" onclick="filterProjects('${tag}')">${tag}</span>`).join('');
                     const translatedCategory = translations[categoryKey] ? translations[categoryKey][lang] : category;
                     container.innerHTML += `<div><h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">${translatedCategory}</h4><div class="flex flex-wrap gap-2">${tagsHTML}</div></div>`;
                 }
             }
-        
+
             function populateProjects(lang, filterTag = null) {
                 const container = document.getElementById('projects-container');
                 if (!container) return;
-                const filteredProjects = filterTag ? projectsData.filter(p => p.tags.includes(filterTag)) : projectsData;
-                if (filteredProjects.length === 0 && filterTag) {
-                    container.innerHTML = `<p class="text-secondary">No hay proyectos para la tecnología '${filterTag}'. <a href="#" onclick="filterProjects(null); return false;" class="text-sky-400">Mostrar todos</a>.</p>`;
+                const filtered = filterTag ? projectsData.filter(p => p.tags.includes(filterTag)) : projectsData;
+                if (filtered.length === 0 && filterTag) {
+                    container.innerHTML = `<p class="text-secondary">No hay proyectos para '${filterTag}'. <a href="#" onclick="filterProjects(null); return false;" class="text-sky-400">Mostrar todos</a>.</p>`;
                     return;
                 }
-                container.innerHTML = filteredProjects.map(project =>
+                container.innerHTML = filtered.map(project =>
                     `<div class="project-item avoid-break p-4 rounded-lg glass-effect interactive">
                         <h4 class="text-lg font-bold">${project.title[lang]}</h4>
                         <p class="text-secondary text-sm mb-2">${project.description[lang]}</p>
@@ -301,16 +402,16 @@
                     </div>`
                 ).join('');
             }
-        
+
             function populateExperience(lang) {
                 const container = document.getElementById('experience-timeline');
-                if(!container) return;
+                if (!container) return;
                 container.innerHTML = experienceData.map((job, index) => {
                     const side = index % 2 === 0 ? 'left' : 'right';
                     return `<div class="timeline-container ${side} animate-on-scroll">
                                 <div class="timeline-item glass-effect" onclick="openExperienceModal(${job.id})">
                                     <div class="see-more-indicator">
-                                        <span data-translate="see_more">${translations.see_more[lang]}</span>
+                                        <span>${translations.see_more[lang]}</span>
                                         <i class="fas fa-external-link-alt fa-xs"></i>
                                     </div>
                                     <div class="pr-12">
@@ -322,10 +423,10 @@
                             </div>`;
                 }).join('');
             }
-        
+
             function populateEducation(lang) {
                 const container = document.getElementById('education-list');
-                if(!container) return;
+                if (!container) return;
                 container.innerHTML = educationData.map(edu => {
                     const subtitleHTML = edu.subtitle ? `<p>${edu.subtitle[lang]}</p>` : '';
                     return `<li>
@@ -336,25 +437,23 @@
                             </li>`;
                 }).join('');
             }
-        
+
             function populateCerts() {
                 const container = document.getElementById('cert-list');
-                if(!container) return;
+                if (!container) return;
                 container.innerHTML = certifications.map(cert => `<p>${cert}</p>`).join('');
             }
-            
+
             function filterProjects(tag) {
                 const lang = localStorage.getItem('language') || 'es';
                 const alreadyActive = currentFilter === tag;
                 currentFilter = alreadyActive ? null : tag;
-            
                 document.querySelectorAll('#tech-stack-container .tag').forEach(t => {
                     t.classList.toggle('active', t.textContent === tag && !alreadyActive);
                 });
-            
                 populateProjects(lang, currentFilter);
             }
-        
+
             function openExperienceModal(jobId) {
                 const lang = localStorage.getItem('language') || 'es';
                 const job = experienceData.find(j => j.id === jobId);
@@ -366,12 +465,12 @@
                 document.getElementById('experience-modal').classList.add('show');
                 document.body.style.overflow = 'hidden';
             }
-        
+
             function closeExperienceModal() {
                 document.getElementById('experience-modal').classList.remove('show');
                 document.body.style.overflow = '';
             }
-        
+
             function setupPdfGeneration() {
                 const downloadBtn = document.getElementById('download-btn');
                 if (!downloadBtn) return;
@@ -383,33 +482,27 @@
                     downloadBtn.disabled = true;
                     const originalTheme = document.documentElement.classList.contains('light-mode') ? 'light' : 'dark';
                     document.documentElement.classList.add('light-mode');
-                    
+
                     const element = document.getElementById('page-content');
-                    
                     const tempExperienceContainer = document.createElement('div');
                     let experienceHTML = `<h3 class="text-2xl font-semibold mb-8 border-b pb-2" style="border-color: #e5e7eb; color: #0ea5e9; font-family: 'Inter', sans-serif; padding-left: 1.5rem;">Experiencia Profesional</h3>`;
-                     experienceData.forEach(job => {
+                    experienceData.forEach(job => {
                         experienceHTML += `<div class="avoid-break mb-6 px-6"><p class="font-semibold" style="color: #0ea5e9;">${job.date['es']}</p><h4 class="text-xl font-bold mt-1" style="color: #1f2937;">${job.title['es']}</h4><p class="font-semibold text-lg" style="color: #4b5563;">${job.company}</p><ul class="list-disc list-inside space-y-2 text-base mt-2" style="color: #4b5563;">${job.description['es']}</ul></div>`;
                     });
                     tempExperienceContainer.innerHTML = experienceHTML;
 
-                    // --- INICIO DE LA CORRECCIÓN ---
-                    // 1. Identificamos la sección de la línea de tiempo y su contenedor (la columna derecha).
                     const experienceSection = document.getElementById('experience-timeline').parentElement;
                     const rightColumn = experienceSection.parentElement;
-
-                    // 2. Ocultamos la sección original y añadimos la temporal A LA COLUMNA DERECHA.
                     experienceSection.style.display = 'none';
                     rightColumn.appendChild(tempExperienceContainer);
-                    // --- FIN DE LA CORRECCIÓN ---
-    
+
                     setTimeout(() => {
-                        html2canvas(element, { 
-                            useCORS: true, // <-- ESTA ES LA LÍNEA MÁGICA
-                            scale: 1, 
-                            backgroundColor: '#f9fafb', 
-                            windowWidth: element.scrollWidth, 
-                            windowHeight: element.scrollHeight 
+                        html2canvas(element, {
+                            useCORS: true,
+                            scale: 1,
+                            backgroundColor: '#f9fafb',
+                            windowWidth: element.scrollWidth,
+                            windowHeight: element.scrollHeight
                         })
                         .then(canvas => {
                             const { jsPDF } = window.jspdf;
@@ -420,10 +513,10 @@
                             let imgHeight = pdfWidth / ratio;
                             let heightLeft = imgHeight;
                             let position = 0;
-    
+
                             pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, pdfWidth, imgHeight);
                             heightLeft -= pdfHeight;
-    
+
                             while (heightLeft > 0) {
                                 position -= pdfHeight;
                                 pdf.addPage();
@@ -433,104 +526,76 @@
                             pdf.save('CV-PabloCarrazana.pdf');
                         })
                         .finally(() => {
-                            // Revertimos los cambios correctamente.
                             rightColumn.removeChild(tempExperienceContainer);
                             experienceSection.style.display = 'block';
-                            
                             downloadText.textContent = 'Descargar CV';
                             downloadIcon.className = 'fas fa-download w-5 mr-2';
                             downloadBtn.disabled = false;
                             if (originalTheme === 'dark') {
-                               document.documentElement.classList.remove('light-mode');
+                                document.documentElement.classList.remove('light-mode');
                             }
                         });
                     }, 500);
                 });
             }
-        
+
             function trackSocialClick(event, platform) {
                 event.preventDefault();
                 const url = event.currentTarget.href;
+                let opened = false;
+                const openUrl = () => {
+                    if (!opened) {
+                        opened = true;
+                        window.open(url, '_blank');
+                    }
+                };
                 try {
                     if (typeof gtag === 'function') {
                         gtag('event', 'social_click', {
                             'social_platform': platform,
                             'link_url': url,
-                            'event_callback': function () {
-                                window.open(url, '_blank'); // <-- CAMBIO AQUÍ
-                            },
-                            'event_timeout': 500 // fallback en 0.5s
+                            'event_callback': openUrl,
+                            'event_timeout': 500
                         });
-                        setTimeout(() => window.open(url, '_blank'), 500); // <-- Y AQUÍ
+                        setTimeout(openUrl, 500);
                     } else {
-                        window.open(url, '_blank'); // <-- Y AQUÍ
+                        openUrl();
                     }
                 } catch (err) {
-                    console.warn('Error en trackSocialClick:', err);
-                    window.open(url, '_blank'); // <-- Y AQUÍ
+                    openUrl();
                 }
             }
 
-            // Exportar funciones necesarias al scope global para el HTML
+            // Expose to global scope for inline HTML handlers
             window.openExperienceModal = openExperienceModal;
             window.closeExperienceModal = closeExperienceModal;
             window.filterProjects = filterProjects;
             window.trackSocialClick = trackSocialClick;
-            window.setupPdfGeneration = setupPdfGeneration;
 
-            // Función de diagnóstico para verificar el scope global
-            window.debugAll = () => {
-                console.log("🧪 Ejecutando debugAll()...");
-            
-                const checks = {
-                    openExperienceModal,
-                    closeExperienceModal,
-                    filterProjects,
-                    trackSocialClick,
-                    setupPdfGeneration,
-                };
-            
-                for (const fn in checks) {
-                    const isFunction = typeof checks[fn] === 'function';
-                    console.log(`✅ ${fn}: ${isFunction ? 'OK (function)' : '❌ No definida o no es función'}`);
-                }
-            
-                console.log("🌐 Todas las funciones deberían estar disponibles en window. Podés probar:");
-                console.log("➡️  openExperienceModal(1), filterProjects('Python'), setupPdfGeneration(), etc.");
-                console.log("🛠️  Si ves errores arriba, alguna función no está bien expuesta al scope global.");
-            };
-
-
-        
             // =================================================================================
-            // --- 4. MAIN EXECUTION (Cuando el DOM está listo)
+            // --- 3. MAIN EXECUTION
             // =================================================================================
-            
-            // --- DOM Element References ---
+
             const themeToggle = document.getElementById('theme-toggle');
             const darkIcon = document.getElementById('dark-icon');
             const lightIcon = document.getElementById('light-icon');
             const langEsBtn = document.getElementById('lang-es');
             const langEnBtn = document.getElementById('lang-en');
-        
-            // --- App State ---
+
             let currentTheme = localStorage.getItem('theme') || 'dark';
-        
-            // --- Theme Application Logic ---
+
             const applyTheme = (theme) => {
                 lightIcon.classList.add('hidden');
                 darkIcon.classList.add('hidden');
-                
                 if (theme === 'dark') {
                     document.documentElement.classList.remove('light-mode');
                     lightIcon.classList.remove('hidden');
-                } else { // light
+                } else {
                     document.documentElement.classList.add('light-mode');
                     darkIcon.classList.remove('hidden');
                 }
             };
-        
-            // --- Language and Content Population Logic ---
+
             const setLanguage = (lang) => {
                 document.documentElement.lang = lang;
                 document.querySelectorAll('[data-translate]').forEach(el => {
@@ -547,34 +612,27 @@
                 localStorage.setItem('language', lang);
                 langEsBtn.classList.toggle('active', lang === 'es');
                 langEnBtn.classList.toggle('active', lang === 'en');
-            
+
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                        }
+                        if (entry.isIntersecting) entry.target.classList.add('is-visible');
                     });
                 }, { threshold: 0.1 });
-            
                 document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
             };
-            
-            // --- Event Listeners Setup ---
+
             themeToggle.addEventListener('click', () => {
                 currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
                 localStorage.setItem('theme', currentTheme);
                 applyTheme(currentTheme);
             });
-            
+
             langEsBtn.addEventListener('click', () => setLanguage('es'));
             langEnBtn.addEventListener('click', () => setLanguage('en'));
-            
-            // --- Initial Page Load Calls ---
-            setupPdfGeneration(); 
-            
-            const savedLang = localStorage.getItem('language') || 'es';
+
+            setupPdfGeneration();
             applyTheme(currentTheme);
-            setLanguage(savedLang);
+            setLanguage(localStorage.getItem('language') || 'es');
         });
     </script>
 </body>
